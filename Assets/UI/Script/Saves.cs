@@ -3,16 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+public class GameData
+{
+    public List<NeuroNet> Items = new List<NeuroNet>();
+}
+
 public class Saves : MonoBehaviour
 {
     public string SaveLoadPath;
-    public Trainee manager;
+    public static Trainee manager;
     public string path;
 
-    public void Save()
+    public static void Save()
     {
-        string json = JsonUtility.ToJson(new Buba());
-        Debug.Log(json);
+        for (int i = 0; i < manager.branches.Count; i++)
+        {
+            var branch = manager.branches[i];
+            GameData gameData = new GameData();
+            foreach (var creature in branch)
+            {
+                gameData.Items.Add(creature.GetComponent<ICreature>().net);
+            }
+
+            string json = JsonUtility.ToJson(gameData);
+            using (StreamWriter sw = new StreamWriter($"branch{i}.json", false, System.Text.Encoding.Default))
+            {
+                sw.WriteLine(json);
+            }
+            Debug.Log(json);
+        }
+
     }
 
 

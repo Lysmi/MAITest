@@ -56,10 +56,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ICreature.cs" />
+     <Compile Include="Assets\Scripts\Layer.cs" />
      <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\NeuroNet.cs" />
+     <Compile Include="Assets\Scripts\Neuron.cs" />
      <Compile Include="Assets\Scripts\Rubik.cs" />
      <Compile Include="Assets\Scripts\Spider.cs" />
+     <Compile Include="Assets\Scripts\Test.cs" />
      <Compile Include="Assets\Scripts\Trainee.cs" />
      <Compile Include="Assets\Scripts\Worm.cs" />
      <Compile Include="Assets\UI\Script\ButtonEvents.cs" />
